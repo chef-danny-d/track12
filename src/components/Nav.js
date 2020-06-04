@@ -1,72 +1,113 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { AppContext } from '../App'
 import axios from 'axios'
+import { entryFetch } from './helper'
 
-export default function Nav() {
-  const initialEntry = {
-    entry: [
-      {
-        _id: '5ed71fa022fe3b8dc8ebcd6c',
-        lat: 37.54129,
-        lng: -77.434769,
-        presence: 'medium',
-        force: 'police',
-        tactic: 'stationary',
-        numReports: 1,
-      },
-    ],
-    loading: true,
+export default function Nav(props) {
+  const [entry, setEntry] = useState([])
+  const [data, setData] = useState({
+    lat: '',
+    lng: '',
+    presence: '',
+    force: '',
+    tactic: '',
+  })
+  const { state, dispatch } = useContext(AppContext)
+
+  const placeMarker = (value) => {
+    const lat = value.lat()
+    const lng = value.lng()
+    dispatch({ type: 'UPDATE_INPUT', data: { lat, lng } })
   }
 
-  const [entry, setEntry] = useState(initialEntry)
+  useEffect(() => {
+    entryFetch(axios, setEntry)
+  }, [])
 
-  // useEffect(() => {
-  //
-  //   entryFetch().then(() => {
-  //     const item = entry.entry
-  //   })
-  // }, [])
+  const change = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
 
-  const entryFetch = () => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  function handle(e) {
+    e.preventDefault()
+    if (data.lat == '' && data.lng == '') {
+      data.lat = state.lat
+      data.lng = state.lng
     }
-    axios.get('http://localhost:3600/', config).then((res) => {
-      console.log(res)
-      //setEntry(res.data)
-    })
-    //setEntry(data)
-  }
+    const { lat, lng, presence, force, tactic } = data
 
-  entryFetch()
+    let values = JSON.stringify({
+      lat,
+      lng,
+      presence,
+      force,
+      tactic,
+    })
+
+    axios
+      .post(`http://localhost:3600`, values, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        const { lat, lng, precence, force, tactic } = res.data
+        props.location.reload()
+      })
+      .catch((err) => console.error(err))
+  }
 
   return (
     <div>
       <aside className="sidebar">
-        <form>
-          <input type="text" name="lat" placeholder="latitude" />
-          <input type="text" name="lng" placeholder="longitude" />
+        <form className="form" onSubmit={(e) => handle(e)}>
           <input
+            className="form--input"
+            type="text"
+            name="lat"
+            placeholder="latitude"
+            onChange={(e) => change(e)}
+            required
+            value={state.lat}
+          />
+          <input
+            className="form--input"
+            type="text"
+            name="lng"
+            placeholder="longitude"
+            onChange={(e) => change(e)}
+            required
+            value={state.lng}
+          />
+          <input
+            className="form--input"
             type="text"
             name="presence"
             placeholder="heavy or medium or low"
+            onChange={(e) => change(e)}
+            required
           />
           <input
+            className="form--input"
             type="text"
             name="force"
             placeholder="police or national guard"
+            onChange={(e) => change(e)}
+            required
           />
           <input
+            className="form--input"
             type="text"
             name="tactic"
             placeholder="stationary or chasing or marching"
+            onChange={(e) => change(e)}
+            required
           />
-          <button>Add listing</button>
+          <button className="form--button">Add report</button>
         </form>
         <nav className="menu">
           <ul className="menu--list">
-            {entry.entry.map((doc) => (
+            {entry.map((doc) => (
               <li className="menu--item" key={doc._id}>
                 <div className="menu--row">
                   <span className="menu--component">{doc.lat}</span>
