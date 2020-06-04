@@ -7,10 +7,10 @@ import {
   Marker,
   InfoWindow,
 } from 'react-google-maps'
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from 'use-places-autocomplete'
+// import usePlacesAutocomplete, {
+//   getGeocode,
+//   getLatLng,
+// } from 'use-places-autocomplete'
 import uuid from 'react-uuid'
 import axios from 'axios'
 import { entryFetch } from './helper'
