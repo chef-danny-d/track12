@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="406df175-ab47-4ec8-bb5b-8ca9c0c9c8fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +57,18 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -74,6 +81,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -86,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591145508786</updated>
       <workItem from="1591145513131" duration="11680000" />
-      <workItem from="1591202142165" duration="20571000" />
+      <workItem from="1591202142165" duration="23111000" />
     </task>
     <servers />
   </component>
@@ -106,26 +118,30 @@
       <screen x="0" y="23" width="1680" height="981" />
     </state>
     <state x="489" y="302" width="701" height="626" key="EditFileWatcherDialog/1680.23.1920.1057/0.23.1680.981@0.23.1680.981" timestamp="1591146014713" />
-    <state width="1636" height="247" key="GridCell.Tab.0.bottom" timestamp="1591205030910">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state width="1636" height="247" key="GridCell.Tab.0.bottom" timestamp="1591238299082">
+      <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state width="1636" height="247" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1591205030910" />
     <state width="1636" height="248" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.981@0.23.1680.981" timestamp="1591163406396" />
-    <state width="1636" height="247" key="GridCell.Tab.0.center" timestamp="1591205030909">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state width="1636" height="247" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.982@0.23.1680.982" timestamp="1591238299082" />
+    <state width="1636" height="247" key="GridCell.Tab.0.center" timestamp="1591238299081">
+      <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state width="1636" height="247" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1591205030909" />
     <state width="1636" height="248" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.981@0.23.1680.981" timestamp="1591163406395" />
-    <state width="1636" height="247" key="GridCell.Tab.0.left" timestamp="1591205030908">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state width="1636" height="247" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.982@0.23.1680.982" timestamp="1591238299081" />
+    <state width="1636" height="247" key="GridCell.Tab.0.left" timestamp="1591238299081">
+      <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state width="1636" height="247" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1591205030908" />
     <state width="1636" height="248" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.981@0.23.1680.981" timestamp="1591163406394" />
-    <state width="1636" height="247" key="GridCell.Tab.0.right" timestamp="1591205030909">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state width="1636" height="247" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.982@0.23.1680.982" timestamp="1591238299081" />
+    <state width="1636" height="247" key="GridCell.Tab.0.right" timestamp="1591238299082">
+      <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state width="1636" height="247" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.980@0.23.1680.980" timestamp="1591205030909" />
     <state width="1636" height="248" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.981@0.23.1680.981" timestamp="1591163406395" />
+    <state width="1636" height="247" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.982@0.23.1680.982" timestamp="1591238299082" />
     <state x="341" y="152" key="SettingsEditor" timestamp="1591211935064">
       <screen x="0" y="23" width="1680" height="980" />
     </state>

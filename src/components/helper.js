@@ -5,7 +5,7 @@ export function entryFetch(axios, setEntry) {
     },
   }
   axios
-    .get('http://localhost:3600/', config)
+    .get(process.env.REACT_APP_URL, config)
     .then((res) => {
       if (res.status == 200) {
         const result = res.data

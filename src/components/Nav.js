@@ -45,7 +45,7 @@ export default function Nav(props) {
     })
 
     axios
-      .post(`http://localhost:3600`, values, {
+      .post(process.env.REACT_APP_URL, values, {
         headers: {
           'Content-Type': 'application/json',
         },
