@@ -24,7 +24,6 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className="App">
-      <Color />
       <div className="container">
         <AppContext.Provider value={{ state, dispatch }}>
           <Nav />

@@ -1,4 +1,6 @@
-export function entryFetch(axios, setEntry) {
+import axios from 'axios'
+
+export function entryFetch(setEntry) {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -13,4 +15,20 @@ export function entryFetch(axios, setEntry) {
       }
     })
     .catch((err) => console.error(err))
+}
+
+export const fetchLocation = (lat, lng) => {
+  axios
+    .get(
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS}`
+    )
+    .then((res) => {
+      if (res.status == 200) {
+        const result = res.data.results[0].formatted_address
+        return result
+      }
+    })
+    .catch((err) => {
+      console.error(err)
+    })
 }
